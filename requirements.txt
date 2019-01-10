@@ -1,0 +1,6 @@
+python-telegram-bot
+git+git://github.com/google/chatbase-python.git
+requests
+bs4
+uuid==1.30
+lxml==4.2.1
