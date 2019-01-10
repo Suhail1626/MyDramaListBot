@@ -95,6 +95,19 @@ def version(bot, update):
 
 
 @run_async
+def rate(bot, update):
+    TRChatBase(update.message.chat_id, update.message.text, "rate")
+    bot.send_message(
+        chat_id=update.message.chat_id,
+        disable_web_page_preview=True,
+        reply_to_message_id=update.message.message_id,
+        text="""If you like me, please give 5 star ⭐️⭐️⭐️⭐️⭐️ rating at: https://t.me/tlgrmcbot?start=mydramalistbot-bot
+You can also recommend me @MyDramaListBot to your friends.
+Have a nice day!"""
+    )
+
+
+@run_async
 def donate(bot, update):
     TRChatBase(update.message.chat_id, update.message.text, "donate")
     inline_keyboard = []
@@ -153,7 +166,7 @@ def inlinequery(bot, update):
 
 {}
 
-{}""".format(image_url, "&#8203;", title, rating, url, sub_title, description)
+{}""".format(image_url, '&#8203;', title, rating, url, sub_title, description)
         results.append(
             InlineQueryResultArticle(
                 id=uuid4(),
@@ -184,11 +197,8 @@ if __name__ == "__main__":
     updater = Updater(token=Config.TG_BOT_TOKEN)
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CommandHandler('donate', donate))
+    updater.dispatcher.add_handler(CommandHandler('rate', rate))
     updater.dispatcher.add_handler(CommandHandler('version', version))
-    updater.dispatcher.add_handler(MessageHandler(
-        Filters.text,
-        start
-    ))
     updater.dispatcher.add_handler(InlineQueryHandler(inlinequery))
     updater.dispatcher.add_error_handler(error)
     if ENV:
