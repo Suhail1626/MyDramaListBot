@@ -166,7 +166,9 @@ def inlinequery(bot, update):
 
 {}
 
-{}""".format(image_url, '&#8203;', title, rating, url, sub_title, description)
+{}
+
+➖ @MalayalamTrollVoice ➖""".format(image_url, '&#8203;', title, rating, url, sub_title, description)
         results.append(
             InlineQueryResultArticle(
                 id=uuid4(),
