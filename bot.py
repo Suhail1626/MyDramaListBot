@@ -203,8 +203,8 @@ if __name__ == "__main__":
     updater.dispatcher.add_error_handler(error)
     if ENV:
         updater.start_webhook(
-            listen="0.0.0.0", port=Config.PORT, url_path=TG_BOT_TOKEN)
-        updater.bot.set_webhook(url=Config.URL + TG_BOT_TOKEN)
+            listen="0.0.0.0", port=Config.PORT, url_path=Config.TG_BOT_TOKEN)
+        updater.bot.set_webhook(url=Config.URL + Config.TG_BOT_TOKEN)
     else:
         updater.start_polling()
     updater.idle()
