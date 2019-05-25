@@ -68,8 +68,10 @@ def SearchMyDramaList(query):
     # take only the first 9 results,
     for sdiv in selectable_divs:
         url = "https://mydramalist.com/{}".format(sdiv.find("a")["href"])
-        sub_title = sdiv.find("span", {"class": "text-muted"}).text
-        rating = sdiv.find("span", {"class": "score"}).text
+        sub_title_div = sdiv.find("span", {"class": "text-muted"})
+        sub_title = sub_title_div.text if sub_title_div is not None else ""
+        rating_div = sdiv.find("span", {"class": "score"})
+        rating = rating_div.text if rating_div is not None else ""
         description = sdiv.findAll("p")[-1].text
         image_url = sdiv.find("img")["src"]
         image_alt = sdiv.find("img")["alt"]
