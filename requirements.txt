@@ -4,4 +4,3 @@ requests
 bs4
 uuid==1.30
 chatbase
-base_message
