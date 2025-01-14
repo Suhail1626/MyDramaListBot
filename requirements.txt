@@ -1,3 +1,4 @@
+python-telegram-bot==12.8
 pyrofork==2.3.45
 requests
 bs4
